@@ -50,18 +50,19 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #1a1a1a8a;
   color: #fff;
   cursor: pointer;
   width: 100px;
   transition: border-color 0.25s;
+  margin-top: 50px;
 }
 button:hover {
   border-color: #3d90b6;
 }
 
 #container {
-  width: 100vw;
+  width: 80vw;
   height: 70vh;
 }
 
