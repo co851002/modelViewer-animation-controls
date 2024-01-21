@@ -9,11 +9,11 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^5.0.11"
+    "vite": "^5.0.11",
+    "vite-plugin-singlefile": "^1.0.0"
   },
   "dependencies": {
     "@google/model-viewer": "^3.4.0",
-    "three": "^0.160.0",
     "wavesurfer.js": "^7.6.5"
   }
 }

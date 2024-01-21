@@ -1,11 +1,16 @@
 import '@google/model-viewer';
 import WaveSurfer from 'wavesurfer.js'
 
+let config = { 
+  modelUrl: 'https://cdn.jsdelivr.net/gh/Goliath3/panorama@main//golden_pharaoh%2023.glb',
+  audioUrl: '/sample.mp3'
+}
+
+window.ModelViewerConfig = config;
 let wavesurfer;
 export function modelViewer(element) {
   const modelViewer = document.createElement('model-viewer');
-  modelViewer.src =
-    'https://cdn.jsdelivr.net/gh/Goliath3/panorama@main/shaylushay.glb';
+  modelViewer.src = window.ModelViewerConfig.modelUrl;
   modelViewer.setAttribute('alt', 'A 3D model');
   // modelViewer.setAttribute('auto-rotate', '');
   modelViewer.setAttribute('camera-controls', '');
@@ -53,7 +58,7 @@ export function waveSurfer(element) {
     container: '#container',
     waveColor: '#3d90b6',
     progressColor: '#f0f0f0',
-    url: '/cool_music_3.mp3',
+    url: window.ModelViewerConfig.audioUrl,
     // Set a bar width
     barHeight: 0.5,
     // Set a bar width
