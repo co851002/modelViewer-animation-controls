@@ -1,6 +1,5 @@
 import './style.css';
 import { modelViewer, waveSurfer } from './modelViewer';
 modelViewer(document.querySelector('#container'));
-waveSurfer(document.querySelector('#wavesurfer')); 
-
+waveSurfer(document.querySelector('#container')); 
 

@@ -1,17 +1,28 @@
 import '@google/model-viewer';
 import WaveSurfer from 'wavesurfer.js'
 
-// let config = { 
-//   modelUrl: 'https://cdn.jsdelivr.net/gh/Goliath3/panorama@main//golden_pharaoh%2023.glb',
-//   audioUrl: '/sample.mp3',
-//   test:''
-// }
+window.ModelViewerConfig = null;
+
+const config = {
+    modelUrl: '',
+    audioUrl: '/cool_music_3.mp3',
+    width: '',
+    height: ''
+}
 
 window.ModelViewerConfig = config;
+
+
 let wavesurfer;
+let modelUrl = window.ModelViewerConfig.modelUrl || 'https://cdn.jsdelivr.net/gh/Goliath3/panorama@main/shaylushay.glb';
+let audioUrl = window.ModelViewerConfig.audioUrl || '/cool_music_3.mp3';
+let width = '';
+let height = '';
+
 export function modelViewer(element) {
+  console.log(window)
   const modelViewer = document.createElement('model-viewer');
-  modelViewer.src = window.ModelViewerConfig.modelUrl;
+  modelViewer.src = modelUrl;
   modelViewer.setAttribute('alt', 'A 3D model');
   // modelViewer.setAttribute('auto-rotate', '');
   modelViewer.setAttribute('camera-controls', '');
@@ -59,17 +70,16 @@ export function waveSurfer(element) {
     container: '#wavesurfer',
     waveColor: '#3d90b6',
     progressColor: '#f0f0f0',
-    url: window.ModelViewerConfig.audioUrl,
+    url: '/cool_music_3.mp3',
     // Set a bar width
-    barHeight: 0,
+    barHeight: 0.5,
     // Set a bar width
-    barWidth: 0,
+    barWidth: 1,
     // Optionally, specify the spacing between bars
     barGap: 2,
     // And the bar radius
     barRadius: 2,
-    loop: false,
-    hidden: true
+    loop: false
   });
 
 
