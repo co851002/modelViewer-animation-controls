@@ -66,6 +66,11 @@ button:hover {
   height: 70vh;
 }
 
+#wavesurfer {
+  display:none!important
+}
+
+
 model-viewer {
   width: inherit;
   height: inherit;

@@ -1,11 +1,11 @@
 import '@google/model-viewer';
 import WaveSurfer from 'wavesurfer.js'
 
-// let config = { 
-//   modelUrl: 'https://cdn.jsdelivr.net/gh/Goliath3/panorama@main//golden_pharaoh%2023.glb',
-//   audioUrl: '/sample.mp3',
-//   test:''
-// }
+let config = { 
+  modelUrl: 'https://cdn.jsdelivr.net/gh/Goliath3/panorama@main//golden_pharaoh%2023.glb',
+  audioUrl: '/sample.mp3',
+  test:''
+}
 
 window.ModelViewerConfig = config;
 let wavesurfer;
@@ -56,19 +56,20 @@ export function modelViewer(element) {
 export function waveSurfer(element) {
 
   wavesurfer = WaveSurfer.create({
-    container: '#container',
+    container: '#wavesurfer',
     waveColor: '#3d90b6',
     progressColor: '#f0f0f0',
     url: window.ModelViewerConfig.audioUrl,
     // Set a bar width
-    barHeight: 0.5,
+    barHeight: 0,
     // Set a bar width
-    barWidth: 1,
+    barWidth: 0,
     // Optionally, specify the spacing between bars
     barGap: 2,
     // And the bar radius
     barRadius: 2,
-    loop: false
+    loop: false,
+    hidden: true
   });
 
 
