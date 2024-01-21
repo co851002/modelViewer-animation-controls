@@ -1,11 +1,11 @@
 import '@google/model-viewer';
 import WaveSurfer from 'wavesurfer.js'
 
-let config = { 
-  modelUrl: 'https://cdn.jsdelivr.net/gh/Goliath3/panorama@main//golden_pharaoh%2023.glb',
-  audioUrl: '/sample.mp3',
-  test:''
-}
+// let config = { 
+//   modelUrl: 'https://cdn.jsdelivr.net/gh/Goliath3/panorama@main//golden_pharaoh%2023.glb',
+//   audioUrl: '/sample.mp3',
+//   test:''
+// }
 
 window.ModelViewerConfig = config;
 let wavesurfer;
