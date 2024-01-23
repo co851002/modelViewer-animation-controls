@@ -5,14 +5,14 @@ import WaveSurfer from 'wavesurfer.js'
 
 window.ModelViewerConfig = null;
 
-const config = {
-    modelUrl: '',//model url - any origin
-    audioUrl: '/cool_music_3.mp3', //audio url to be on same origin as iframe html
-    width: '300px', //width is px, % or vh
-    height: '300px', //height is px, % or vh
-    url: 'https://www.tiktok.com', //Paste clickout url here
-    centered: true, //true or false, false defaults to top left
-}
+// const config = {
+//     modelUrl: '',//model url - any origin
+//     audioUrl: '/cool_music_3.mp3', //audio url to be on same origin as iframe html
+//     width: '300px', //width is px, % or vh
+//     height: '300px', //height is px, % or vh
+//     url: 'https://www.tiktok.com', //Paste clickout url here
+//     centered: true, //true or false, false defaults to top left
+// }
 
 window.ModelViewerConfig = config;
 
