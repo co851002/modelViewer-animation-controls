@@ -1,25 +1,33 @@
 import '@google/model-viewer';
 import WaveSurfer from 'wavesurfer.js'
 
+
 window.ModelViewerConfig = null;
 
 const config = {
-    modelUrl: '',
-    audioUrl: '/cool_music_3.mp3',
-    width: '',
-    height: ''
+    modelUrl: '',//model url - any origin
+    audioUrl: '/cool_music_3.mp3', //audio url to be on same origin as iframe html
+    width: '300px', //width is px, % or vh
+    height: '300px', //height is px, % or vh
+    url: 'https://www.tiktok.com', //Paste clickout url here
+    centered: true, //true or false, false defaults to top left
 }
 
 window.ModelViewerConfig = config;
 
-
 let wavesurfer;
+let app = document.getElementById('app');
 let modelUrl = window.ModelViewerConfig.modelUrl || 'https://cdn.jsdelivr.net/gh/Goliath3/panorama@main/shaylushay.glb';
 let audioUrl = window.ModelViewerConfig.audioUrl || '/cool_music_3.mp3';
-let width = '';
-let height = '';
+let width = window.ModelViewerConfig.width || '100%';
+let height = window.ModelViewerConfig.height || '100%';
+let clickOut = window.ModelViewerConfig.url || 'https://www.sketchfab.com';
+
 
 export function modelViewer(element) {
+  element.style.width = window.ModelViewerConfig.width;
+  element.style.height = window.ModelViewerConfig.height;
+  window.ModelViewerConfig.centered ? document.getElementById('app').style.margin = '0 auto' : null;
   console.log(window)
   const modelViewer = document.createElement('model-viewer');
   modelViewer.src = modelUrl;
@@ -34,11 +42,12 @@ export function modelViewer(element) {
   modelViewer.touchAction = 'pan-y';
   modelViewer.ar = true;
   modelViewer.arMode = 'webxr scene-viewer';
-  // modelViewer.setAttribute('field-of-view', '9deg');
-  // modelViewer.setAttribute('camera-orbit', '0deg 75deg 150%');
+  
 
   //Add modelviewer to #container in #app
   element.appendChild(modelViewer);
+
+  console.log(modelViewer)
 
   //Create & add play pause state btn to #container in #app
   const btn = document.createElement('button');
@@ -62,6 +71,46 @@ export function modelViewer(element) {
     }
     console.log('play');
   });
+
+ 
+
+// modelViewer.addEventListener('load', () => {
+//   // Access the Three.js scene
+//   const modelScene = modelViewer.model;
+//   const threeScene = modelScene ? modelScene.scene : null;
+
+//   console.log('loaded', modelScene, threeScene)
+
+
+//   if (threeScene) {
+//       // Traverse the scene to find meshes
+//       threeScene.traverse((object) => {
+//           if (object.isMesh) {
+//               // Do something with the mesh
+//               console.log(object);
+//           }
+//       });
+//   }
+// });
+
+let isDragging = false;
+
+modelViewer.addEventListener('mousedown', () => {
+    isDragging = false;
+});
+
+modelViewer.addEventListener('mousemove', () => {
+    isDragging = true;
+});
+
+modelViewer.addEventListener('mouseup', () => {
+    if (!isDragging) {
+        // Not dragging, so handle as a click
+        window.open (clickOut, '_blank');
+    }
+});
+
+
 }
 
 export function waveSurfer(element) {
