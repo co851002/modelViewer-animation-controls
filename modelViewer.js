@@ -3,32 +3,32 @@ import '@google/model-viewer';
 import WaveSurfer from 'wavesurfer.js'
 
 
-window.ModelViewerConfig = null;
 
-// const config = {
-//     modelUrl: '',//model url - any origin
-//     audioUrl: '/cool_music_3.mp3', //audio url to be on same origin as iframe html
-//     width: '100px', //width is px, % or vh
-//     height: '100px', //height is px, % or vh
-//     url: 'https://www.tiktok.com', //Paste clickout url here
-//     centered: true, //true or false, false defaults to top left
-// }
+const config = {
+    modelUrl: '',//model url - any origin
+    audioUrl: '/cool_music_3.mp3', //audio url to be on same origin as iframe html
+    width: '200px', //width is px, % or vh
+    height: '200px', //height is px, % or vh
+    url: 'https://www.tiktok.com', //Paste clickout url here
+    centered: true, //true or false, false defaults to top left
+}
 
-// window.ModelViewerConfig = config;
 
 let wavesurfer;
 let app = document.getElementById('app');
-let modelUrl = window.ModelViewerConfig.modelUrl || 'https://cdn.jsdelivr.net/gh/Goliath3/panorama@main/shaylushay.glb';
-let audioUrl = window.ModelViewerConfig.audioUrl || '/cool_music_3.mp3';
-let width = window.ModelViewerConfig.width || '100%';
-let height = window.ModelViewerConfig.height || '100%';
-let clickOut = window.ModelViewerConfig.url || 'https://www.sketchfab.com';
+const modelUrl = window.ModelViewerConfig?.modelUrl || config.modelUrl || 'https://cdn.jsdelivr.net/gh/Goliath3/panorama@main/shaylushay.glb';
+const audioUrl = window.ModelViewerConfig?.audioUrl || config.audioUrl || '/cool_music_3.mp3';
+const width = window.ModelViewerConfig?.width || config.width || '100%';
+const height = window.ModelViewerConfig?.height || config.height || '100%';
+const clickOut = window.ModelViewerConfig?.clickOut || config.clickOut || 'https://www.sketchfab.com';
+const centered = window.ModelViewerConfig?.centered ? config.centered : null;
 
-
+if (centered) {
+  document.getElementById('app').style.margin = '0 auto'
+}
 export function modelViewer(element) {
-  element.style.width = window.ModelViewerConfig.width;
-  element.style.height = window.ModelViewerConfig.height;
-  window.ModelViewerConfig.centered ? document.getElementById('app').style.margin = '0 auto' : null;
+  element.style.width = width;
+  element.style.height = height;
   console.log(window)
   const modelViewer = document.createElement('model-viewer');
   modelViewer.src = modelUrl;
